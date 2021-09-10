@@ -5,7 +5,8 @@ This aim explores attitudes of community-dwelling older adults with dementia and
 | Key                        | Value                          |
 |----------------------------|--------------------------------|
 | **Principal Investigator** | Matthew Growdon                |
-| **Analysts**               | Edie Espejo                    |
+| **Statistician**           | Edie Espejo                    |
+| **Research Collaborators** | Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman |
 | **Data**                   | NHATS 2016, public-use data    |
 | **Publications**           | `NA`                           |
 | **Project Start**          | 2021-01-14                     |
