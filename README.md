@@ -11,7 +11,7 @@ This aim explores attitudes of community-dwelling older adults with dementia and
 | **Project Start**          | 2021-01-14                     |
 
 
-**Collaborators**: Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman
+**COLLABORATORS**: Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman
 
 ## Aim 3
 
