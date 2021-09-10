@@ -4,7 +4,7 @@ This aim explores attitudes of community-dwelling people with dementia and their
 ## Project Details
 | Key                        | Value                          |
 |----------------------------|--------------------------------|
-| **Principle Investigator** | Matthew Growdon                |
+| **Principal Investigator** | Matthew Growdon                |
 | **Analysts**               | Edie Espejo                    |
 | **Data**                   | NHATS 2016, public-use data    |
 | **Publications**           | `NA`                           |
