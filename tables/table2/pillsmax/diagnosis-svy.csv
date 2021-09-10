@@ -1,0 +1,7 @@
+	uncomfortable taking 5 or more pills		
+dementia diagnosis	disagree	agree	Total
+	Prop.	Prop.	Prop.
+no dementia diagnosis	0.4814	0.5186	1.0000
+dementia diagnosed	0.5236	0.4764	1.0000
+Total	0.4957	0.5043	1.0000
+

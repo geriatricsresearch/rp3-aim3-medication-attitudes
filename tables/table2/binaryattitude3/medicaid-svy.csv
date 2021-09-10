@@ -1,0 +1,7 @@
+	binary, take more meds than needed		
+whether primary payer for care is medicaid or not	disagree	agree	Total
+	Prop.	Prop.	Prop.
+does not have medicaid	0.7861	0.2139	1.0000
+has medicaid	0.7376	0.2624	1.0000
+Total	0.7732	0.2268	1.0000
+

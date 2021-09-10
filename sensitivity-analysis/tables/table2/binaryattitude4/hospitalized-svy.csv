@@ -1,0 +1,7 @@
+	binary, willing to stop take meds		
+hospitalized within last year	disagree	agree	Total
+	Prop.	Prop.	Prop.
+not hospitalized	0.1268	0.8732	1.0000
+hospitalized	0.0629	0.9371	1.0000
+Total	0.1070	0.8930	1.0000
+

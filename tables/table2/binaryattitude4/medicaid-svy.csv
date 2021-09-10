@@ -1,0 +1,7 @@
+	binary, willing to stop take meds		
+whether primary payer for care is medicaid or not	disagree	agree	Total
+	Prop.	Prop.	Prop.
+does not have medicaid	0.1214	0.8786	1.0000
+has medicaid	0.1304	0.8696	1.0000
+Total	0.1238	0.8762	1.0000
+

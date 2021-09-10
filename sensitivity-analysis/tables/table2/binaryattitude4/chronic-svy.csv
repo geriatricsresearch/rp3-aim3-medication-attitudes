@@ -1,0 +1,8 @@
+	binary, willing to stop take meds		
+number of chronic conditions, categorical	disagree	agree	Total
+	Prop.	Prop.	Prop.
+0-1	0.1516	0.8484	1.0000
+2-3	0.0915	0.9085	1.0000
+>3	0.0906	0.9094	1.0000
+Total	0.1062	0.8938	1.0000
+
