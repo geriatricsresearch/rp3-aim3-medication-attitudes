@@ -14,6 +14,8 @@ cd "/Users/ee/GitHub/rp3-aim3-medication-attitudes/sensitivity-analysis/scripts"
 
 * 0. Data ---------------------------------------------------- *
 use "../data/step-1-self/cleaned-data.dta"
+replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
+
 mi set mlong
 mi svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
 
@@ -35,7 +37,7 @@ mi register imputed dementia doctor fall health hospitalized race regularmeds me
 
 mi impute chained (logit) fall hospitalized doctor regularmeds medicaid medicationsiadl (mlogit) health race dementia = age sex educ marital chronic, noisily add(20) rseed (1)
 
-mkdir "../data/step-3"
+* mkdir "../data/step-3"
 save "../data/step-3/imputed-data.dta", replace
 
 

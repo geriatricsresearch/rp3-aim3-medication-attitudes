@@ -3,13 +3,13 @@
 * | Author    | Edie Espejo
 * | Study     | RP3 Aim 3 (Matthew Growdon)
 * | Created   | 2021-04-01
-* | Last Edit | 2021-09-09
+* | Last Edit | 2021-09-14
 * | Objective | Create tabs for Tables 1 and 2
 
 cd "/Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts"
-
 use "../data/step-2/cleaned-data.dta"
 
+replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
 
 * Survey set command
 svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)

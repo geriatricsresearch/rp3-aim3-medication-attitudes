@@ -3,7 +3,7 @@
 * | Author    | Edie Espejo
 * | Study     | RP3 Aim 3 (Matthew Growdon)
 * | Created   | 2021-06-09
-* | Last Edit | 2021-09-10
+* | Last Edit | 2021-09-14
 * | Objective | MICE
 
 
@@ -15,6 +15,8 @@ cd "/Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts"
 
 * 0. Data ---------------------------------------------------- *
 use "../data/step-2/cleaned-data.dta"
+replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
+
 mi set mlong
 mi svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
 

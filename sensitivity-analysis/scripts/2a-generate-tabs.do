@@ -9,6 +9,8 @@
 cd "/Users/ee/GitHub/rp3-aim3-medication-attitudes/sensitivity-analysis"
 use "data/step-1-self/cleaned-data.dta"
 
+replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
+
 
 * Survey set command
 svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
