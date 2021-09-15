@@ -1,9 +1,5 @@
-pillsmax_clean	Prop.
-1	0.50
-2	0.21
-3	0.15
-4	0.09
-5	0.03
-6	0.02
-Total	1.00
+uncomfortable taking 5 or more pills	Prop.
+disagree	0.4957
+agree	0.5043
+Total	1.0000
 
