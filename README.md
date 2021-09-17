@@ -30,10 +30,12 @@ The `3a-mice.do` STATA file specifies the imputation of missing data using chain
 # Step 4. Visualization.
 We create the following figure based on the probabilities generated in the previous step using `4a-outcome-plot.R`.
 
-<img src='https://github.com/geriatricsresearch/rp3-aim3-medication-attitudes/blob/main/plots/attitude-agreements/attitude-agreements.001.jpeg?raw=true' width=500> 
+![attitude-agreements 002](https://user-images.githubusercontent.com/20163246/133846039-9f9444b2-e6d8-48fe-a148-206ed2adb3ed.jpeg)
+
 
 The 3-way Venn Diagram was created using STATA in Jupyter Notebook (Python) in `4b-venn-diagrams.ipynb`.
 
-<img src='https://github.com/geriatricsresearch/rp3-aim3-medication-attitudes/blob/main/plots/venn-3way-svy.png?raw=true' width=500>
+![venn-3way-svy](https://user-images.githubusercontent.com/20163246/133846058-4aa7c9eb-931b-4612-aca0-e825019336b0.png)
+
 
 The script `4c-dementia-pills.ipynb` is not a visualization script, but grounds some information needed to understand the distribution of how many regular medications patients with and without dementia are taking.
