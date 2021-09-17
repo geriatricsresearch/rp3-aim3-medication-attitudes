@@ -18,6 +18,11 @@ This aim explores attitudes of community-dwelling older adults with dementia and
 
 These outcome variables were based on *insert information here*.
 
+![likert-score-plot](https://user-images.githubusercontent.com/20163246/133846939-5d8d08e3-03e9-4129-adde-3f8657a4a172.png)
+
+*I need to add the code that I used to make the above plot into the repo.**
+
+
 # Step 1. Raw Data.
 Cohort eligibility requirements were having a completed NHATS Round 6 MA module and were aged 65 or older in that year. We merged these data with the NHATS dementia classifcations data and NHATS Early Life files from Rounds 1 and 5. The scripts used to do this are saved under the `/scripts` folder as `1a-nhats-dementia-class.do` and `1b-process-sample.R`.
 
