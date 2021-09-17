@@ -20,7 +20,7 @@ These outcome variables were based on *insert information here*.
 
 ![likert-score-plot](https://user-images.githubusercontent.com/20163246/133846939-5d8d08e3-03e9-4129-adde-3f8657a4a172.png)
 
-*I need to add the code that I used to make the above plot into the repo.**
+*I need to add the code that I used to make the above plot into the repo.*
 
 
 # Step 1. Raw Data.
