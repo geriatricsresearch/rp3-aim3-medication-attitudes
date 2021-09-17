@@ -1,4 +1,4 @@
-# Project Details
+# Project Information
 
 **Project**                 Attitudes Toward Deprescribing among Older Adults with Dementia in the US  
 **Principal Investigator**  Matthew Growdon                
