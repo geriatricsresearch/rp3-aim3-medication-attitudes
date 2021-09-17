@@ -1,6 +1,5 @@
-# Project Information
+# Attitudes Toward Deprescribing among Older Adults with Dementia in the US
 
-**Project**                 Attitudes Toward Deprescribing among Older Adults with Dementia in the US  
 **Principal Investigator**  Matthew Growdon                
 **Statistician**            Edie Espejo                    
 **Collaborators**           Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman  
