@@ -5,7 +5,7 @@
 **Statistician**            Edie Espejo                    
 **Collaborators**           Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman  
 **Data**                    NHATS Round 6, public-use data    
-**Publications**            `NA`                           
+**Publications**            *What shall I put here if this is in progress?*                           
 **Project Start**           2021-01-14                     
 **Software**                STATA, R, Python 3, Jupyter Notebook
 
