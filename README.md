@@ -23,7 +23,7 @@ These outcome variables were based on *insert information here*.
 
 
 # Step 1. Raw Data.
-Cohort eligibility requirements were having a completed NHATS Round 6 MA module and were aged 65 or older in that year. We merged these data with the NHATS dementia classifcations data and NHATS Early Life files from Rounds 1 and 5. The scripts used to do this are saved under the `/scripts` folder as `1a-nhats-dementia-class.do` and `1b-process-sample.R`.
+All the NHATS survey data can be downloaded <a href='https://www.nhats.org/researcher/data-access'>here</a>. Cohort eligibility requirements were having a completed NHATS Round 6 MA module and were aged 65 or older in that year. We merged these data with the NHATS dementia classifcations data and NHATS Early Life files from Rounds 1 and 5. The scripts used to do this are saved under the `/scripts` folder as `1a-nhats-dementia-class.do` and `1b-process-sample.R`.
 
 # Step 2. Clean Data & Generate Tabs.
 In the next step, the data are manually labelled in `2a-clean-data.do`. Then, we use STATA to produce raw and survey-weighted tables for Table 1 (`2b-generate-tabs.do`). A supplementary table stratifies Table 1 by proxy status (`2c-proxy-self.do`). Using the files output by 2B, `2c-table-one.R` is a script that compiles Table 1 and the supplementary stratified by proxy status table.
