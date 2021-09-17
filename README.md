@@ -28,7 +28,7 @@ In the next step, the data are manually labelled in `2a-clean-data.do`. Then, we
 The `3a-mice.do` STATA file specifies the imputation of missing data using chained equations. Output data (MICE marginal probabilities of outcomes) are Excel files which are cleaned up by `3b-table-two.R` into our formal Table 2. For references, the corresponding odds ratios are estimated in `3c-odds-ratios.R`.
 
 # Step 4. Visualization.
-We create the following figure based on the probabilities generated in the previous step using `4a-outcome-plot.R`.
+We create the following figure based on the probabilities generated in the previous step using `4a-outcome-plot.R`. The background highlights were added using other graphical software.
 
 ![attitude-agreements 002](https://user-images.githubusercontent.com/20163246/133846039-9f9444b2-e6d8-48fe-a148-206ed2adb3ed.jpeg)
 
@@ -39,3 +39,6 @@ The 3-way Venn Diagram was created using STATA in Jupyter Notebook (Python) in `
 
 
 The script `4c-dementia-pills.ipynb` is not a visualization script, but grounds some information needed to understand the distribution of how many regular medications patients with and without dementia are taking.
+
+# Sensititivity Analysis
+A sensitivity analysis with only self-respondents was conducted. These are available under the `/sensitivity-analysis` folder.
