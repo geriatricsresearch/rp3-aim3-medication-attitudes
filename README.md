@@ -15,11 +15,9 @@ This aim explores attitudes of community-dwelling older adults with dementia and
 - Willingness to deprescribe if a doctor says it's possible
 - Comfort with taking 5+ pills daily
 
-These outcome variables were based on *insert information here*.
+These outcome variables were chosen based on 3 conceptual domains: attitudes toward polypharmacy, beliefs about the necessity of one's medications, and willingness to deprescribe.
 
 ![likert-score-plot](https://user-images.githubusercontent.com/20163246/133846939-5d8d08e3-03e9-4129-adde-3f8657a4a172.png)
-
-*I need to add the code that I used to make the above plot into the repo.*
 
 
 # Step 1. Raw Data.
