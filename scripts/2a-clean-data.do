@@ -299,6 +299,8 @@ label define diagnosis_lab 0 "no dementia diagnosis" 1 "dementia diagnosed"
 label values diagnosis diagnosis_lab
 
 
+replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
+
 mkdir "../data/step-2"
 save "../data/step-2/cleaned-data.dta", replace
 

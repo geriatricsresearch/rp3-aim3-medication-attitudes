@@ -1,0 +1,327 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts/mar
+> ginals.log
+  log type:  text
+ opened on:  28 Oct 2021, 16:31:37
+
+. clear
+
+. * Edie Espejo
+
+. * Matthew Growdon
+
+. * 2021-10-28
+
+. * 2021-10-28
+
+. 
+. use "../data/step-2/cleaned-data.dta"
+(Written by R)
+
+. 
+. * Survey set command
+
+. svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
+
+Sampling weights: w6anfinwgt0
+             VCE: linearized
+     Single unit: missing
+        Strata 1: w6varstrat
+ Sampling unit 1: w6varunit
+           FPC 1: <zero>
+
+. 
+. svy, subpop(subpop): tab binaryattitude3
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,048
+Number of PSUs   = 110                           Population size =  12,
+> 781,238
+                                                 Subpop. no. obs =     
+>     396
+                                                 Subpop. size    = 1,71
+> 3,273.9
+                                                 Design df       =     
+>      55
+
+----------------------
+binary,   |
+take more |
+meds than |
+needed    | proportion
+----------+-----------
+ disagree |      .7752
+    agree |      .2248
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab binaryattitude4
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,055
+Number of PSUs   = 110                           Population size =  12,
+> 771,884
+                                                 Subpop. no. obs =     
+>     403
+                                                 Subpop. size    = 1,70
+> 3,919.8
+                                                 Design df       =     
+>      55
+
+----------------------
+binary,   |
+willing   |
+to stop   |
+take meds | proportion
+----------+-----------
+ disagree |      .1264
+    agree |      .8736
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab pillsmax
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,040
+Number of PSUs   = 110                           Population size =  12,
+> 748,752
+                                                 Subpop. no. obs =     
+>     388
+                                                 Subpop. size    = 1,68
+> 0,788.1
+                                                 Design df       =     
+>      55
+
+----------------------
+uncomfort |
+able      |
+taking 5  |
+or more   |
+pills     | proportion
+----------+-----------
+ disagree |      .4957
+    agree |      .5043
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. 
+. 
+. * Make the subpop changes
+
+. replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsma
+> x==.
+(17 real changes made)
+
+. svy, subpop(subpop): tab binaryattitude3
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,065
+Number of PSUs   = 110                           Population size =  12,
+> 877,872
+                                                 Subpop. no. obs =     
+>     396
+                                                 Subpop. size    = 1,71
+> 3,273.9
+                                                 Design df       =     
+>      55
+
+----------------------
+binary,   |
+take more |
+meds than |
+needed    | proportion
+----------+-----------
+ disagree |      .7752
+    agree |      .2248
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab binaryattitude4
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,072
+Number of PSUs   = 110                           Population size =  12,
+> 868,518
+                                                 Subpop. no. obs =     
+>     403
+                                                 Subpop. size    = 1,70
+> 3,919.8
+                                                 Design df       =     
+>      55
+
+----------------------
+binary,   |
+willing   |
+to stop   |
+take meds | proportion
+----------+-----------
+ disagree |      .1264
+    agree |      .8736
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab pillsmax
+(running tabulate on estimation sample)
+
+Number of strata =  55                           Number of obs   =     
+>   2,057
+Number of PSUs   = 110                           Population size =  12,
+> 845,387
+                                                 Subpop. no. obs =     
+>     388
+                                                 Subpop. size    = 1,68
+> 0,788.1
+                                                 Design df       =     
+>      55
+
+----------------------
+uncomfort |
+able      |
+taking 5  |
+or more   |
+pills     | proportion
+----------+-----------
+ disagree |      .4957
+    agree |      .5043
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. 
+. 
+. * For the Venn diagram folks
+
+. replace subpop=0 if binaryattitude3==.
+(26 real changes made)
+
+. replace subpop=0 if binaryattitude4==.
+(12 real changes made)
+
+. replace subpop=0 if pillsmax==.
+(24 real changes made)
+
+. svy, subpop(subpop): tab binaryattitude3
+(running tabulate on estimation sample)
+
+Number of strata =  55                            Number of obs   =    
+>   2,091
+Number of PSUs   = 110                            Population size = 12,
+> 999,949
+                                                  Subpop. no. obs =    
+>     360
+                                                  Subpop. size    =  1,
+> 514,427
+                                                  Design df       =    
+>      55
+
+----------------------
+binary,   |
+take more |
+meds than |
+needed    | proportion
+----------+-----------
+ disagree |      .7472
+    agree |      .2528
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab binaryattitude4
+(running tabulate on estimation sample)
+
+Number of strata =  55                            Number of obs   =    
+>   2,091
+Number of PSUs   = 110                            Population size = 12,
+> 999,949
+                                                  Subpop. no. obs =    
+>     360
+                                                  Subpop. size    =  1,
+> 514,427
+                                                  Design df       =    
+>      55
+
+----------------------
+binary,   |
+willing   |
+to stop   |
+take meds | proportion
+----------+-----------
+ disagree |      .1232
+    agree |      .8768
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. svy, subpop(subpop): tab pillsmax
+(running tabulate on estimation sample)
+
+Number of strata =  55                            Number of obs   =    
+>   2,091
+Number of PSUs   = 110                            Population size = 12,
+> 999,949
+                                                  Subpop. no. obs =    
+>     360
+                                                  Subpop. size    =  1,
+> 514,427
+                                                  Design df       =    
+>      55
+
+----------------------
+uncomfort |
+able      |
+taking 5  |
+or more   |
+pills     | proportion
+----------+-----------
+ disagree |      .5125
+    agree |      .4875
+          | 
+    Total |          1
+----------------------
+Key: proportion = Cell proportion
+
+Note: 1 stratum omitted because it contains no subpopulation members.
+
+. 
+. log off
+      name:  <unnamed>
+       log:  /Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts/mar
+> ginals.log
+  log type:  text
+ paused on:  28 Oct 2021, 16:31:51
+-----------------------------------------------------------------------

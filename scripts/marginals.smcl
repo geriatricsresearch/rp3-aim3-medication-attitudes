@@ -1,0 +1,281 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts/marginals.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}28 Oct 2021, 16:33:10
+
+{com}. * Edie Espejo
+
+. * Matthew Growdon
+
+. * 2021-10-28
+
+. * 2021-10-28
+
+. 
+. use "../data/step-2/cleaned-data.dta"
+{txt}(Written by R)
+
+{com}. 
+. * Survey set command
+
+. svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
+
+{txt}Sampling weights:{col 19}{res}w6anfinwgt0
+             {txt}VCE:{col 19}{res}linearized
+     {txt}Single unit:{col 19}{res}missing
+        {txt}Strata 1:{col 19}{res}w6varstrat
+ {txt}Sampling unit 1:{col 19}{res}w6varunit
+           {txt}FPC 1:{col 19}<zero>
+{p2colreset}{...}
+
+{com}. 
+. svy, subpop(subpop): tab binaryattitude3
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,048}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,781,238}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:396}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,713,273.9}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+take more {c |}
+meds than {c |}
+needed    {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.7752
+    {txt}agree {c |}      {res}.2248
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab binaryattitude4
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,055}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,771,884}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:403}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,703,919.8}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+willing   {c |}
+to stop   {c |}
+take meds {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.1264
+    {txt}agree {c |}      {res}.8736
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab pillsmax
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,040}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,748,752}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:388}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,680,788.1}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+uncomfort {c |}
+able      {c |}
+taking 5  {c |}
+or more   {c |}
+pills     {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.4957
+    {txt}agree {c |}      {res}.5043
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. 
+. 
+. * Make the subpop changes
+
+. replace subpop=0 if binaryattitude3==. & binaryattitude4==. & pillsmax==.
+{txt}(17 real changes made)
+
+{com}. svy, subpop(subpop): tab binaryattitude3
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,065}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,877,872}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:396}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,713,273.9}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+take more {c |}
+meds than {c |}
+needed    {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.7752
+    {txt}agree {c |}      {res}.2248
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab binaryattitude4
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,072}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,868,518}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:403}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,703,919.8}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+willing   {c |}
+to stop   {c |}
+take meds {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.1264
+    {txt}agree {c |}      {res}.8736
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab pillsmax
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 50}{lalign 15:Number of obs}{col 65} = {res}{ralign 11:2,057}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 50}{lalign 15:Population size}{col 65} = {res}{ralign 11:12,845,387}
+{txt}{col 50}{lalign 15:Subpop. no. obs}{col 65} = {res}{ralign 11:388}
+{txt}{col 50}{lalign 15:Subpop. size}{col 65} = {res}{ralign 11:1,680,788.1}
+{txt}{col 50}{lalign 15:Design df}{col 65} = {res}{ralign 11:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+uncomfort {c |}
+able      {c |}
+taking 5  {c |}
+or more   {c |}
+pills     {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.4957
+    {txt}agree {c |}      {res}.5043
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. 
+. 
+. * For the Venn diagram folks
+
+. replace subpop=0 if binaryattitude3==.
+{txt}(26 real changes made)
+
+{com}. replace subpop=0 if binaryattitude4==.
+{txt}(12 real changes made)
+
+{com}. replace subpop=0 if pillsmax==.
+{txt}(24 real changes made)
+
+{com}. svy, subpop(subpop): tab binaryattitude3
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 51}{lalign 15:Number of obs}{col 66} = {res}{ralign 10:2,091}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 51}{lalign 15:Population size}{col 66} = {res}{ralign 10:12,999,949}
+{txt}{col 51}{lalign 15:Subpop. no. obs}{col 66} = {res}{ralign 10:360}
+{txt}{col 51}{lalign 15:Subpop. size}{col 66} = {res}{ralign 10:1,514,427}
+{txt}{col 51}{lalign 15:Design df}{col 66} = {res}{ralign 10:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+take more {c |}
+meds than {c |}
+needed    {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.7472
+    {txt}agree {c |}      {res}.2528
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab binaryattitude4
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 51}{lalign 15:Number of obs}{col 66} = {res}{ralign 10:2,091}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 51}{lalign 15:Population size}{col 66} = {res}{ralign 10:12,999,949}
+{txt}{col 51}{lalign 15:Subpop. no. obs}{col 66} = {res}{ralign 10:360}
+{txt}{col 51}{lalign 15:Subpop. size}{col 66} = {res}{ralign 10:1,514,427}
+{txt}{col 51}{lalign 15:Design df}{col 66} = {res}{ralign 10:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+binary,   {c |}
+willing   {c |}
+to stop   {c |}
+take meds {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.1232
+    {txt}agree {c |}      {res}.8768
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. svy, subpop(subpop): tab pillsmax
+{res}{txt}(running {bf:tabulate} on estimation sample)
+{res}
+{txt}{col 1}{lalign 16:Number of strata}{col 17} = {res}{ralign 3:55}{txt}{col 51}{lalign 15:Number of obs}{col 66} = {res}{ralign 10:2,091}
+{txt}{col 1}{lalign 16:Number of PSUs}{col 17} = {res}{ralign 3:110}{txt}{col 51}{lalign 15:Population size}{col 66} = {res}{ralign 10:12,999,949}
+{txt}{col 51}{lalign 15:Subpop. no. obs}{col 66} = {res}{ralign 10:360}
+{txt}{col 51}{lalign 15:Subpop. size}{col 66} = {res}{ralign 10:1,514,427}
+{txt}{col 51}{lalign 15:Design df}{col 66} = {res}{ralign 10:55}
+
+{txt}{hline 10}{c TT}{hline 11}
+uncomfort {c |}
+able      {c |}
+taking 5  {c |}
+or more   {c |}
+pills     {c |} proportion
+{hline 10}{c +}{hline 11}
+ disagree {c |}      {res}.5125
+    {txt}agree {c |}      {res}.4875
+          {txt}{c |} 
+    Total {c |}          {res}1
+{txt}{hline 10}{c BT}{hline 11}
+Key: {col 1}proportion = {res}Cell proportion
+
+{txt}{p 0 6 0 79}Note: 1 stratum omitted because it contains no subpopulation members.{p_end}
+{res}
+{com}. 
+. log off
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/ee/GitHub/rp3-aim3-medication-attitudes/scripts/marginals.smcl
+  {txt}log type:  {res}smcl
+ {txt}paused on:  {res}28 Oct 2021, 16:33:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
