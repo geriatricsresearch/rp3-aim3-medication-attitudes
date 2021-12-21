@@ -1,0 +1,7 @@
+	uncomfortable taking 5 or more pills		
+whether primary payer for care is medicaid or not	disagree	agree	Total
+	Prop.	Prop.	Prop.
+does not have medicaid	0.4507	0.5493	1.0000
+has medicaid	0.5029	0.4971	1.0000
+Total	0.4634	0.5366	1.0000
+

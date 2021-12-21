@@ -37,7 +37,7 @@ mi register imputed dementia doctor fall health hospitalized race regularmeds me
 
 mi impute chained (logit) fall hospitalized doctor regularmeds medicaid medicationsiadl (mlogit) health race dementia = age sex educ marital chronic, noisily add(20) rseed (1)
 
-* mkdir "../data/step-3"
+mkdir "../data/step-3"
 save "../data/step-3/imputed-data.dta", replace
 
 

@@ -1,0 +1,7 @@
+	binary, willing to stop take meds		
+dementia diagnosis	disagree	agree	Total
+	Prop.	Prop.	Prop.
+no dementia diagnosis	0.1171	0.8829	1.0000
+dementia diagnosed	0.0699	0.9301	1.0000
+Total	0.1062	0.8938	1.0000
+

@@ -2,7 +2,7 @@
 # Author: Edie Espejo
 # Project: RP3 Aim 3 (Matthew Growdon)
 # Date Created: 2021-07-30
-# Last Edit: 2021-09-02
+# Last Edit:    2021-12-16
 # Objective: Create Table 2 out of STATA output
 
 
@@ -109,6 +109,9 @@ readPvalues <- function(outcome_variable) {
 
 # Clean Counts / Weighted Percentages  --------------------------------------------------s
 
+# i <- 1
+# m <- 3
+
 # Look at an outcome variable subtable
 all_outcomes <- lapply(1:length(tbl2_files), function(i) {
   
@@ -128,8 +131,22 @@ all_outcomes <- lapply(1:length(tbl2_files), function(i) {
     svy_tab_clean <- readOutputForTable2(m, svy_tab, tbl2_order, percents=TRUE)
     
     # 3. Put together ------------------------------------------
-    cbind(count_tab_clean %>% select(Characteristic, `Strongly Agree/Agree (Unweighted)`),
-          svy_tab_clean %>% select(`Strongly Agree/Agree (%)`))
+    # cbind(count_tab_clean %>% select(Characteristic, `Strongly Agree/Agree (Unweighted)`),
+    #       svy_tab_clean %>% select(`Strongly Agree/Agree (%)`))
+    
+    revision_table <- count_tab
+    revision_table <- revision_table[3:(nrow(count_tab)-1), c(1,3,4)]
+    
+    names(revision_table) <- c('Characteristic', 'a', 'd')
+    revision_table <- left_join(revision_table,
+                                count_tab_clean %>%
+                                  rename(b=`Strongly Agree/Agree (Unweighted)`)) %>%
+      
+      left_join(svy_tab_clean) %>%
+      mutate(`Strongly Agree/Agree (Unweighted)`=paste0(a, '/', d)) %>%
+      select(Characteristic, `Strongly Agree/Agree (Unweighted)`, `Strongly Agree/Agree (%)`)
+    
+    return(revision_table)
     
   })
   
@@ -297,9 +314,12 @@ pvalues_join <- pvalues_join %>%
   mutate(pval_pm=ifelse(as.numeric(pval_pm)<0.001, '<0.001', pval_pm))
   
 
+
+table_1 <- readr::read_csv('../tables/clean-csv/table1.csv')
+temp_merge_2d <- left_join(table_1[,1] %>% rename(Characteristic=Covariate), temp_merge2c)
 # saveRDS(pvalues_join, '../data/step-3/pvalues-join.RDS')
            
-temp_merge3 <- left_join(temp_merge2c, pvalues_join)
+temp_merge3 <- left_join(temp_merge_2d, pvalues_join)
 
 
 
@@ -341,7 +361,7 @@ temp_merge4 <- left_join(temp_merge3, pvalues_join2)
 
 
 
-s# Reorder Variables -----------------------------------------------------------
+# Reorder Variables -----------------------------------------------------------
 
 temp_merge5 <- temp_merge4 %>%
   select(Characteristic,
@@ -381,6 +401,7 @@ temp_merge5 <- temp_merge4 %>%
   replace(is.na(.), '')
 
 
+no_renames <- temp_merge5
 
 names(temp_merge5) <- c('Characteristic',
                      rep(c('Unweighted', 'Weighted', 'MICE Bivariate', 'Bivariate 95% CI', 'Group P-value', 'Group Significance', 'MICE Adjusted', '95% CI', 'Group P-Value', 'Group Significance'), 3))
@@ -415,11 +436,6 @@ clean_table$Characteristic <- gsub('^Chronic$', 'Chronic Conditions', clean_tabl
 
 
 
-
-
-
-
-
 names(clean_table) <- c('',
                      outcome_vars[1], '', '', '', '', '', '', '', '', '',
                      outcome_vars[2], '', '', '', '', '', '', '', '', '',
@@ -428,7 +444,106 @@ names(clean_table) <- c('',
 
 
 
+dir.create('../tables/clean-csv')
+write.csv(clean_table, '../tables/clean-csv/table2-v2.csv', row.names=FALSE)
 
+
+# Removal of Bivariate MICE ---------------------------------------------------
+# names(no_renames)
+
+no_renames <- no_renames %>%
+  select(Characteristic,
+         `Strongly Agree/Agree (Unweighted)`,
+         `Strongly Agree/Agree (%)`,
+         `binaryattitude3`,
+         `binaryattitude3_ci`,
+         `pval_ba3`,
+         `pval_ba3b`,
+         
+         `Strongly Agree/Agree (Unweighted).1`,
+         `Strongly Agree/Agree (%).1`,
+         `binaryattitude4`,
+         `binaryattitude4_ci`,
+         `pval_ba4`,
+         `pval_ba4b`,
+         
+         `Strongly Agree/Agree (Unweighted).2`,
+         `Strongly Agree/Agree (%).2`,
+         `pillsmax`,
+         `pillsmax_ci`,
+         `pval_pm`,
+         `pval_pmb`) %>%
+  
+  replace(is.na(.), '')
+
+no_renames_v2 <- no_renames %>%
+  rename(unweighted_1=`Strongly Agree/Agree (Unweighted)`) %>%
+  rename(weighted_1=`Strongly Agree/Agree (%)`) %>%
+  mutate(mice_1=paste0(binaryattitude3, ' ', binaryattitude3_ci)) %>%
+  
+  rename(unweighted_2=`Strongly Agree/Agree (Unweighted).1`) %>%
+  rename(weighted_2=`Strongly Agree/Agree (%).1`) %>%
+  mutate(mice_2=paste0(binaryattitude4, ' ', binaryattitude4_ci)) %>%
+  
+  rename(unweighted_3=`Strongly Agree/Agree (Unweighted).2`) %>%
+  rename(weighted_3=`Strongly Agree/Agree (%).2`) %>%
+  mutate(mice_3=paste0(pillsmax, ' ', pillsmax_ci)) %>%
+  
+  select(Characteristic,
+         unweighted_1,
+         weighted_1,
+         mice_1,
+         `pval_ba3`,
+         `pval_ba3b`,
+         
+         
+         unweighted_2,
+         weighted_2,
+         mice_2,
+         `pval_ba4`,
+         `pval_ba4b`,
+         
+         unweighted_3,
+         weighted_3,
+         mice_3,
+         `pval_pm`,
+         `pval_pmb`)
+
+no_renames_v2 <- no_renames_v2 %>% mutate(Characteristic=stringr::str_to_title(Characteristic))
+
+
+names(no_renames_v2) <- c('Characteristic',
+                        rep(c('Unweighted', 'Weighted', 'MICE Adjusted', 'Group P-Value', 'Group Significance'), 3))
+
+no_renames_v3 <- rbind(names(no_renames_v2), no_renames_v2)
+
+no_renames_v3$Characteristic <- stringr::str_to_title(clean_table$Characteristic)
+no_renames_v3$Characteristic <- gsub('To', 'to', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('Race', 'Race/Ethnicity', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('Educ', 'Education', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('Marital', 'Marital Status', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Proxy$', 'Proxy Status', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('Regularmeds', 'Regular Medications', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Dementia$', 'Dementia Classification', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Diagnosis$', 'Reported Dementia Diagnosis', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Health$', 'Self-Rated Health', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Hospitalized$', 'Hospitalized in Past Year', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Fall$', 'Fall in Past Month', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Doctor$', 'Seen Regular Doctor in Past Year', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Medicationsiadl$', 'Difficulty Tracking Medications', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Adls$', 'ADL Difficulties', no_renames_v3$Characteristic)
+no_renames_v3$Characteristic <- gsub('^Chronic$', 'Chronic Conditions', no_renames_v3$Characteristic)
+
+
+
+
+
+names(no_renames_v3) <- c('',
+                        outcome_vars[1], '', '', '', '',
+                        outcome_vars[2], '', '', '', '',
+                        outcome_vars[3], '', '', '', '')
 
 dir.create('../tables/clean-csv')
-write.csv(clean_table, '../tables/clean-csv/table2.csv', row.names=FALSE)
+write.csv(no_renames_v3, '../tables/clean-csv/table2-v2.csv', row.names=FALSE)
+
+  

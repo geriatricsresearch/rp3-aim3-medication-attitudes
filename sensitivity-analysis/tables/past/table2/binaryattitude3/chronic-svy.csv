@@ -1,0 +1,8 @@
+	binary, take more meds than needed		
+number of chronic conditions, categorical	disagree	agree	Total
+	Prop.	Prop.	Prop.
+0-1	0.7559	0.2441	1.0000
+2-3	0.8311	0.1689	1.0000
+>3	0.7055	0.2945	1.0000
+Total	0.7735	0.2265	1.0000
+

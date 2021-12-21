@@ -1,0 +1,7 @@
+	binary, take more meds than needed		
+dementia diagnosis	disagree	agree	Total
+	Prop.	Prop.	Prop.
+no dementia diagnosis	0.7711	0.2289	1.0000
+dementia diagnosed	0.7819	0.2181	1.0000
+Total	0.7735	0.2265	1.0000
+

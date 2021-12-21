@@ -21,6 +21,7 @@ mi set mlong
 mi svyset w6varunit [pweight=w6anfinwgt0], strata(w6varstrat)
 
 
+mi misstable patterns medicationsiadl
 
 
 * 0. Variable Lists -------------------------------------------- *
