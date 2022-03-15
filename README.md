@@ -4,7 +4,7 @@
 **Statistician**            Edie Espejo                    
 **Collaborators**           Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman  
 **Data**                    NHATS Round 6, public-use data    
-**Publication**             available on <a href='https://pubmed.ncbi.nlm.nih.gov/35266141/'>Journal of the American Geriatrics Society</a>                         
+**Publication**             2022-03-10, published in the <a href='https://pubmed.ncbi.nlm.nih.gov/35266141/'>Journal of the American Geriatrics Society</a>                         
 **Project Start**           2021-01-14                     
 **Software**                Stata, R, Python 3, Jupyter Notebook
 
