@@ -6,7 +6,6 @@
 **Statistician**           
 - Edie Espejo            
 
-       
 **Collaborators**          
 - Bocheng Jing
 - John Boscardin
@@ -15,10 +14,18 @@
 - Kenneth Boockvar
 - Michael Steinman  
 
-**Data**                    NHATS Round 6, public-use data    
-**Publication**             2022-03-10, published in the <a href='https://pubmed.ncbi.nlm.nih.gov/35266141/'>Journal of the American Geriatrics Society</a>                         
-**Project Start**           2021-01-14                     
-**Software**                Stata, R, Python 3, Jupyter Notebook
+**Data**
+- NHATS Round 6, public-use data    
+- NHATS Round 5
+
+**Project Start**  
+This project began on 2021-01-14.
+
+**Publication**  
+"Attitudes Toward Deprescribing among Older Adults with Dementia in the US" was published in the <a href='https://pubmed.ncbi.nlm.nih.gov/35266141/'>Journal of the American Geriatrics Society</a> on 2022-03-10.                        
+                   
+**Software**  
+Stata, R, Python 3, Jupyter Notebook
 
 # Goal
 This aim explores attitudes of community-dwelling older adults with dementia and their caregivers' attitude toward medications and their willingness to deprescribe. This project focuses on 3 different outcomes variables:
