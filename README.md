@@ -4,9 +4,9 @@
 **Statistician**            Edie Espejo                    
 **Collaborators**           Bocheng Jing, John Boscardin, Andrew Zullo, Kristine Yaffe, Kenneth Boockvar, Michael Steinman  
 **Data**                    NHATS Round 6, public-use data    
-**Publications**            *What shall I put here if this is in progress?*                           
+**Publications**            <a href='https://pubmed.ncbi.nlm.nih.gov/35266141/'>Journal of the American Geriatrics Society</a>                         
 **Project Start**           2021-01-14                     
-**Software**                STATA, R, Python 3, Jupyter Notebook
+**Software**                Stata, R, Python 3, Jupyter Notebook
 
 # Goal
 This aim explores attitudes of community-dwelling older adults with dementia and their caregivers' attitude toward medications and their willingness to deprescribe. This project focuses on 3 different outcomes variables:
