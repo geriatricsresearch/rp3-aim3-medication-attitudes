@@ -1,7 +1,12 @@
 # Attitudes Toward Deprescribing among Older Adults with Dementia in the US
 
-**Principal Investigator**  Matthew Growdon                
-**Statistician**            Edie Espejo                    
+**Principal Investigator**
+- Matthew Growdon            
+   
+**Statistician**           
+- Edie Espejo            
+
+       
 **Collaborators**          
 - Bocheng Jing
 - John Boscardin
